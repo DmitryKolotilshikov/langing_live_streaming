@@ -1,0 +1,23 @@
+{
+  "name": "sass_live_streaming",
+  "version": "1.0.0",
+  "description": "langing page",
+  "source": "index.html",
+  "scripts": {
+    "sass:watch": "sass --style=expanded --watch styles:dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DmitryKolotilshikov/langing_live_streaming.git"
+  },
+  "author": "Dmitry Ko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DmitryKolotilshikov/langing_live_streaming/issues"
+  },
+  "homepage": "https://github.com/DmitryKolotilshikov/langing_live_streaming#readme",
+  "devDependencies": {
+    "parcel": "^2.10.3",
+    "sass": "^1.69.5"
+  }
+}
