@@ -6,7 +6,8 @@
 .header {
     width: 100%;
     height: 50px;
-    background-color: color.adjust(v.$color_white, $alpha: -0.85);
+    // background-color: color.adjust(v.$color_blue, $alpha: -0.85);
+    background-color: v.$color_blue;
 
     // border-bottom: 1px solid v.$color_white;
     border: {
@@ -44,8 +45,8 @@
             flex-grow: 1;
 
             .list {
-                @include m.d-flex(start, center, nowrap, row, 100px, 0);
-                padding: 0 0 0 100px;
+                @include m.d-flex(start, center, nowrap, row, min(100px, 5vw), 0);
+                padding: 0 0 0 min(100px, 5vw);
 
                 &__item {
                     &-link {
@@ -55,6 +56,13 @@
 
                         @extend %hover-black;
                     }
+                }
+            }
+
+            @media (max-width: v.$media_lg) {
+                .list {
+                    @include m.d-flex(center, center, nowrap, row, min(100px, 5vw), 0);
+                    padding: 0 0 0 0;
                 }
             }
         }
