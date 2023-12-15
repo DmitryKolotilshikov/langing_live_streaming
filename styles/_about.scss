@@ -1,0 +1,177 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.about-section {
+    padding: 140px 0 0 0;
+
+    .about {
+        margin: 0 auto;
+        @include m.d-flex(start, center, nowrap, column, 0, 130px);
+
+        &__quality {
+            width: 100%;
+            height: 400px;
+            padding: 0 0 0 15px;
+            background: url('../assets/img/desktop_alpha.webp') 90% 100%/contain no-repeat;
+
+            &-title {
+                @include m.font(45px, 400, v.$color_white);
+            }
+
+            &-desc {
+                margin: 10px 0 0 0;
+                max-width: 590px;
+                @include m.font(20px, 300, v.$color_white);
+            }
+
+            @media (max-width: v.$media_xl) {
+                background: linear-gradient(180deg, rgba(103,143,242,1) 0%, rgba(103,143,242,0) 74%),
+                    url('../assets/img/desktop_alpha.webp') 90% 45% / 500px no-repeat;
+            }
+            @media (max-width: v.$media_md) {
+                &-title {
+                    @include m.font(35px, 400, v.$color_white);
+                }
+    
+                &-desc {
+                    max-width: 500px;
+                    @include m.font(16px, 300, v.$color_white);
+                }
+
+                background: url('../assets/img/desktop_alpha.webp') 99% 100% / 450px no-repeat;
+            }
+            @media (max-width: v.$media_sm) {
+                &-desc {
+                    max-width: 320px;
+                }
+
+                background: url('../assets/img/desktop_alpha.webp') 130px 100% / 400px no-repeat;
+            }
+        }
+
+        &__touch {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            padding: 0 15px 0 0;
+            @include m.d-flex(end, end, nowrap, column, 0, 20px);
+
+            &::before {
+                content: "";
+                @include m.position(absolute, -1, -1, top, left, 0, -200px);
+                width: 100%;
+                height: 100%;
+                background: url('../assets/img/phone_alpha.webp') 0 0 / contain no-repeat;
+                rotate: z 15deg;
+            }
+
+            &-title {
+                @include m.font(45px, 400, v.$color_white);
+            }
+
+            &-desc {
+                text-align: right;
+                max-width: 480px;
+                line-height: 1.4;
+                @include m.font(20px, 300, v.$color_white);
+            }
+
+            @media (max-width: v.$media_xl) {
+                &::before {
+                    @include m.position(absolute, -1, -1, top, left, -35px, -360px);
+                }
+            }
+
+            @media (max-width: v.$media_lg) {
+                height: 450px;
+
+                &::before {
+                    @include m.position(absolute, -1, -1, top, left, -50px, -380px);
+                }
+            }
+
+            @media (max-width: v.$media_md) {
+                height: 400px;
+                @include m.d-flex(start, end, nowrap, column, 0, 20px);
+
+                &-title {
+                    @include m.font(35px, 400, v.$color_white);
+                }
+    
+                &-desc {
+                    max-width: 340px;
+                    @include m.font(16px, 300, v.$color_white);
+                }
+
+                &::before {
+                    @include m.position(absolute, -1, -1, top, left, 0, -280px);
+                    background: url('../assets/img/phone_alpha.webp') 0 0 / 90% no-repeat;
+                    rotate: z 65deg;
+                }
+            }
+
+            @media (max-width: v.$media_sm) {
+                &::before {
+                    @include m.position(absolute, -1, -1, top, left, 20px, -200px);
+                    background: url('../assets/img/phone_alpha.webp') -170px 0 / 125% no-repeat;
+                }
+            }
+
+            @media (max-width: v.$media_min) {
+                height: 350px;
+
+                &::before {
+                    @include m.position(absolute, -1, -1, top, left, 35px, -170px);
+                }
+            }
+        }
+
+        &__approach {
+            width: 100%;
+            height: 800px;
+            padding: 0 0 0 15px;
+            background: url('../assets/img/cactus_alpha.webp') 90% 100% / contain no-repeat;
+
+            &-title {
+                margin: 200px 0 0 0;
+                @include m.font(45px, 400, v.$color_white);
+            }
+
+            &-desc {
+                margin: 10px 0 0 0;
+                max-width: 730px;
+                @include m.font(20px, 300, v.$color_white);
+            }
+
+            @media (max-width: v.$media_lg) {
+                &-desc {
+                    max-width: 500px;
+                }
+            }
+
+            @media (max-width: v.$media_md) {
+                height: 730px;
+
+                &-title {
+                    margin: 50px 0 0 0;
+                    @include m.font(35px, 400, v.$color_white);
+                }
+    
+                &-desc {
+                    padding: 0 15px 0 0;
+                    @include m.font(16px, 300, v.$color_white);
+                }
+
+                background: url('../assets/img/cactus_alpha.webp') 99% 100% / 320px no-repeat;
+            }
+
+            @media (max-width: v.$media_sm) {
+                height: 500px;
+                &-title {
+                    margin: 0;
+                }
+                background: url('../assets/img/cactus_alpha.webp') 99% 100% / 220px no-repeat;
+            }
+        }
+    }
+}
