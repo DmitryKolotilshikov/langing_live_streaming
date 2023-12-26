@@ -1,0 +1,113 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+@use 'sass:color';
+
+%slider-button {
+    width: 67px;
+    height: 67px;
+    border: none;
+    border-radius: 20px;
+    background-color: color.adjust(v.$color_white, $alpha: -0.85);
+    rotate: z 45deg;
+}
+
+.testimonials {
+    padding: 100px 0 100px 0;
+    margin: 0 auto;
+    @include m.d-flex(start, center, nowrap, column, 0, 90px);
+
+    &__title {
+        @include m.font(60px, 400, v.$color_white);
+
+        @media (max-width: v.$media_md) {
+            font-size: 35px;
+        }
+    }
+
+    .slider {
+        position: relative;
+        height: 500px;
+
+        &__left-btn {
+            @extend %slider-button;
+            @include m.position(absolute, 1, -1, top, left, 100px, -100px);
+
+            &-icon {
+                width: 36px;
+                height: 23px;
+                fill: v.$color_white;
+                rotate: z 135deg;
+            }
+        }
+
+        &__right-btn {
+            @extend %slider-button;
+            @include m.position(absolute, 1, -1, top, right, 100px, -100px);
+
+            &-icon {
+                width: 36px;
+                height: 23px;
+                fill: v.$color_white;
+                rotate: z -45deg;
+            }
+        }
+
+        &__left-btn:hover,
+        &__right-btn:hover {
+            cursor: pointer;
+            box-shadow: inset 0 0 15px 3px rgba(0,0,0,.15);
+
+            .slider__left-btn-icon,
+            .slider__right-btn-icon {
+                fill: v.$color_black;
+            }
+        }
+
+        &__points {
+            @include m.position(absolute, 1, -1, bottom, left, 0, 50%);
+            @include m.d-flex(start, center, nowrap, row, 9px, 0);
+            translate: -50% 0;
+
+            &-item {
+                width: 13px;
+                height: 13px;
+                border-radius: 50%;
+                background-color: v.$color_white;
+
+                &:hover {
+                    cursor: pointer;
+                    scale: .7;
+                    background-color: v.$color_grey;
+                }
+            }
+        }
+
+        @media (max-width: v.$media_md) {
+            height: 300px;
+
+            &__left-btn {
+                top: unset;
+                bottom: 20px;
+                left: 0;
+            }
+            &__right-btn {
+                top: unset;
+                bottom: 20px;
+                right: 0;
+            }
+
+            &__points {
+                bottom: 45px;
+            }
+        }
+
+        @media (max-width: v.$media_min) {
+            &__left-btn {
+                left: 10px;
+            }
+            &__right-btn {
+                right: 10px;
+            }
+        }
+    }
+}

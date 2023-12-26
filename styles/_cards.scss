@@ -32,7 +32,9 @@
         .info-card__icon {
             fill: v.$color_white;
         }
-        .info-card__title, .info-card__desc {
+
+        .info-card__title,
+        .info-card__desc {
             color: v.$color_white;
         }
     }
@@ -44,7 +46,7 @@
         &__title {
             @include m.font(14px, 400, v.$color_black);
         }
-    
+
         &__desc {
             @include m.font(11px, 300, v.$color_black);
         }
@@ -104,10 +106,38 @@
 
     &:hover {
         cursor: pointer;
-        box-shadow: 0 8px 20px 12px rgba(0,0,0,.15), inset 0 -5px 70px 25px rgba(0,0,0,.2);
+        box-shadow: 0 8px 20px 12px rgba(0, 0, 0, .15), inset 0 -5px 70px 25px rgba(0, 0, 0, .2);
     }
 
     @media (max-width: v.$media_min) {
         width: 300px;
+    }
+}
+
+.wave-card {
+    width: 500px;
+    height: 275px;
+    background: url('../assets/wave_card_bg.svg') center/contain no-repeat;
+    @include m.d-flex(start, start, nowrap, column, 0, 35px);
+
+    &__avatar {
+        margin: 20px 0 0 20px;
+    }
+
+    &__quote {
+        @include m.font(20px, 400, v.$color_white);
+        margin: 0 45px 0 30px;
+        line-height: 1.4;
+        text-align: justify;
+    }
+
+    @media (max-width: v.$media_md) {
+        width: 330px;
+        row-gap: 15px;
+        background: url('../assets/wave_card_bg.svg') 50% 0/contain no-repeat;
+    
+        &__quote {
+            @include m.font(13px, 400, v.$color_white);
+        }
     }
 }
