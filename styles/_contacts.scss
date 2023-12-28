@@ -1,0 +1,52 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+@use 'sass:color';
+@use 'placeholders';
+
+.footer-section {
+    background-color: color.adjust(v.$color_white, $alpha: -0.85);
+    box-shadow: 0 -5px 20px 0 rgba(0, 0, 0, .15);
+
+    .footer {
+        width: 100%;
+        height: 135px;
+        margin: 0 auto;
+        padding: 0 15px;
+        @include m.d-flex(space-between, center, nowrap, row, 0, 0);
+
+        &__terms {
+            @include m.d-flex(start, start, nowrap, column, 0, 15px);
+
+            &-links {
+                @include m.d-flex(start, center, nowrap, row, 40px, 0);
+                @include m.font(20px, 400, v.$color_white);
+            }
+            &-link {
+                @extend %hover-black;
+            }
+
+            &-rights {
+                @include m.font(14px, 300, v.$color_white);
+            }
+        }
+
+        &__contacts {
+            @include m.d-flex(space-between, center, nowrap, row, 43px, 0);
+
+            &-icon {
+                width: 25px;
+                height: 24px;
+                fill: v.$color_white;
+
+                &:hover {
+                    fill: v.$color_black;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        @media (max-width: v.$media_sm) {
+            @include m.d-flex(center, center, nowrap, column-reverse, 0, 20px);
+        }
+    }
+}
