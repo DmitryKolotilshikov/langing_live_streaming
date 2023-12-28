@@ -38,6 +38,10 @@ hr {
     width: 100%;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .container {
     max-width: 1440px;
     margin: 0 auto;
