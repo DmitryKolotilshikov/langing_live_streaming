@@ -136,6 +136,7 @@
         @include m.position(fixed, 999, 0);
         background-color: color.adjust(v.$color_black, $alpha: -0.5);
         backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         translate: 100% 0;
         transition: translate .22s;
 
